@@ -16,7 +16,7 @@
 
 
     Scenario: user could search for product using sku
-      Given User select search box
+      Given user go to home_page
       When user enter product <SKU> "AP_MBP_13"
       And user click on the product in search result
       Then result-page load successfully

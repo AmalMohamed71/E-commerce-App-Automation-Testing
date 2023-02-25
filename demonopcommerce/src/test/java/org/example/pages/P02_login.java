@@ -6,11 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class P02_login {
-    public P02_login() {
-        PageFactory.initElements(Hooks.driver,this);
-    }
+    public P02_login() {PageFactory.initElements(Hooks.driver,this);}
 
-@FindBy(className = "ico-login")
+    @FindBy(className = "ico-login")
     public WebElement loginLink;
 
 @FindBy(id = "Email")

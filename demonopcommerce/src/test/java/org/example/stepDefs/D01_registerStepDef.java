@@ -6,13 +6,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P01_register;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
 public class D01_registerStepDef {
 
     P01_register register = new P01_register();
+
+  //  ConfigReader reader = new ConfigReader();
+
     @Given("user go to register page")
     public void registerpage()
     {
@@ -45,12 +47,15 @@ public class D01_registerStepDef {
 
     @And("user enter email")
     public void userEnter() {
-        Faker fakeEmail = new Faker();
+       /* Faker fake = new Faker();
+        String emailAddress = fake.internet().safeEmailAddress();
+        System.out.println(emailAddress);
+        reader.set("email",emailAddress);*/
+        register.email.sendKeys( "test@example.com");
 
-        register.email.sendKeys(fakeEmail.internet().safeEmailAddress());
     }
 
-    @And("user enter password {string} and confirm {string}")
+    @And("user enter password {string} and confirm password")
     public void userEnterPasswordAndConfirm(String password) {
         register.password.sendKeys(password);
         register.confirmpassword.sendKeys(password);
